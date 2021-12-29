@@ -33,7 +33,7 @@ for rest in only_adj_close[-how_many_elements:]:
     print (rest)
     sum=sum+rest
 sum=sum/how_many_elements
-print("Srednia:" + str(sum))
+print("AVG:" + str(sum))
 #####################
 
 #######LONG_CHART##############
