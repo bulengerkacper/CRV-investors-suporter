@@ -19,7 +19,6 @@ class Scrapper:
         self.crv.reset_index(inplace=True)
 
     def short_advisor(self,how_many_elements):
-        # how_many_elements=5
         sum=0
         only_adj_close=self.crv["Adj Close"]
         for rest in only_adj_close[-how_many_elements:]:
@@ -27,6 +26,12 @@ class Scrapper:
             sum=sum+rest
         sum=sum/how_many_elements
         print("AVG:" + str(sum))
+        return sum
+    
+    def reinitialize_dates(self):
+        current_year=datetime.now().year
+        current_month=datetime.now().month
+        current_day=datetime.now().day
 
 #data scraper
 ##################
