@@ -4,6 +4,8 @@ import matplotlib.pyplot as plt
 import plotly.express as px
 from datetime import date, datetime, timedelta
 import datetime as dt
+import yfinance as yf
+
 
 class Scrapper:
     def __init__(self):
@@ -22,16 +24,25 @@ class Scrapper:
         sum=0
         only_adj_close=self.crv["Adj Close"]
         for rest in only_adj_close[-how_many_elements:]:
-            print (rest)
             sum=sum+rest
         sum=sum/how_many_elements
-        print("AVG:" + str(sum))
         return sum
     
     def reinitialize_dates(self):
         current_year=datetime.now().year
         current_month=datetime.now().month
         current_day=datetime.now().day
+
+    def get_avg_from_last_15min(self):
+        sum=0
+        counter=0
+        data = yf.download(tickers='CRV-USD', period = '15m', interval = '1m')
+        for rest in data['Close']:
+            sum=sum+rest
+            counter+=1
+        avg=sum/counter
+        return avg
+
 
 #data scraper
 ##################

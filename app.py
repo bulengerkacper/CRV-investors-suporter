@@ -11,3 +11,8 @@ def main():
 def count_average(numb):
     avg = scraper.avg_from_days(int(numb))
     return str(avg)
+
+@app.route("/avg_from_last_15min")
+def get_avg_from_last_15min():
+    avg = scraper.get_avg_from_last_15min()
+    return str(avg)
