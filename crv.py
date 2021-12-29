@@ -18,7 +18,7 @@ class Scrapper:
         self.crv = web.DataReader("CRV-USD", 'yahoo', start_long_term, end_long_term)  # Collects data
         self.crv.reset_index(inplace=True)
 
-    def short_advisor(self,how_many_elements):
+    def avg_from_days(self,how_many_elements):
         sum=0
         only_adj_close=self.crv["Adj Close"]
         for rest in only_adj_close[-how_many_elements:]:

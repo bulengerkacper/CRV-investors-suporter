@@ -9,5 +9,5 @@ def main():
 
 @app.route("/avg/<numb>")
 def count_average(numb):
-    avg = scraper.short_advisor(int(numb))
+    avg = scraper.avg_from_days(int(numb))
     return str(avg)
