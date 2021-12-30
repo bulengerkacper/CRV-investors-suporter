@@ -9,16 +9,16 @@ import yfinance as yf
 
 class Scrapper:
     def __init__(self):
-        current_year=datetime.now().year
-        current_month=datetime.now().month
-        current_day=datetime.now().day
-        start_long_term = dt.datetime(2020, 8, 14) 
-        end_long_term = dt.datetime(current_year,current_month,current_day)
-        end_short_term_helper=datetime.now()-timedelta(3)
-        start_long_term = dt.datetime(2020, 1, 1)
-        end_short_term = dt.datetime(end_short_term_helper.year,end_short_term_helper.month,end_short_term_helper.day)
-        self.crv = web.DataReader("CRV-USD", 'yahoo', start_long_term, end_long_term)  # Collects data
-        self.crv.reset_index(inplace=True)
+        self.refresh_data()
+        #self.crv.reset_index(inplace=True)
+    
+    def refresh_data(self):
+        self.current_year=datetime.now().year
+        self.current_month=datetime.now().month
+        self.current_day=datetime.now().day
+        self.start_long_term = dt.datetime(2020, 8, 14) 
+        self.end_long_term = dt.datetime(self.current_year,self.current_month,self.current_day)
+        self.crv = web.DataReader("CRV-USD", 'yahoo', self.start_long_term, self.end_long_term)  # Collects data
 
     def avg_from_days(self,how_many_elements):
         sum=0
@@ -27,11 +27,6 @@ class Scrapper:
             sum=sum+rest
         sum=sum/how_many_elements
         return sum
-    
-    def reinitialize_dates(self):
-        current_year=datetime.now().year
-        current_month=datetime.now().month
-        current_day=datetime.now().day
 
     def get_avg_from_last_15min(self):
         sum=0
