@@ -1,3 +1,4 @@
+import re
 import pandas_datareader.data as web
 import matplotlib.pyplot as plt
 
@@ -40,8 +41,7 @@ class Scrapper:
         data=yf.download(tickers='CRV-USD', period = '15m', interval = '1m')
         amount=data['Close']
         result=amount[-1:]
-        print(result)
-        return result
+        return round(result.values[0],4)
     
     def compare_15min_to_3days(self):
         from_last_15min=self.get_avg_from_last_15min()
