@@ -71,9 +71,16 @@
             $('yesterday_to_today').append(data);
         });
         function myFunction() {
-             d=document.getElementById("success_select").value;
-             alert(d);
-
+          coin_type=document.getElementById("success_select").value;
+            $.ajax({
+            type: 'POST',
+            contentType: 'application/json',
+            url: '/coinswitcher',
+            dataType: 'json',
+            data: JSON.stringify({ "value": coin_type }),
+            success: function (result) {},
+            error: function (error) { console.error(error) }
+          });
         }
 
     </script>
@@ -106,9 +113,9 @@ CURVE DAO Token investors helper.
             <form>
             <select required id="success_select">
               <option value="0" disabled selected hidden>CRV-USD</option>
-              <option value="0">CRV-USD</option>
-              <option value="1">BTC-USD</option>
-              <option value="2">ETH-USD</option>
+              <option value="CRV-USD">CRV-USD</option>
+              <option value="BTC-USD">BTC-USD</option>
+              <option value="ETH-USD">ETH-USD</option>
             </select>
             <button type="button" onclick="myFunction()">Check it</button>
             </form>

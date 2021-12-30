@@ -10,16 +10,18 @@ import yfinance as yf
 
 class Scrapper:
     def __init__(self):
-        self.refresh_data()
+        self.coin_to_coin="CRV-USD"
+        self.refresh_data(self.coin_to_coin)
         #self.crv.reset_index(inplace=True)
     
-    def refresh_data(self):
+    def refresh_data(self,coin_to_coin):
         self.current_year=datetime.now().year
         self.current_month=datetime.now().month
         self.current_day=datetime.now().day
         self.start_long_term = dt.datetime(2020, 8, 14) 
         self.end_long_term = dt.datetime(self.current_year,self.current_month,self.current_day)
-        self.crv = web.DataReader("CRV-USD", 'yahoo', self.start_long_term, self.end_long_term)
+        self.coin_to_coin=coin_to_coin
+        self.crv = web.DataReader(coin_to_coin, 'yahoo', self.start_long_term, self.end_long_term)
         self.only_adj_close=self.crv["Adj Close"]
 
     def avg_from_days(self,how_many_elements):
@@ -31,14 +33,14 @@ class Scrapper:
     def get_avg_from_last_15min(self):
         sum=0
         how_many_elements=0
-        data = yf.download(tickers='CRV-USD', period = '15m', interval = '1m')
+        data = yf.download(tickers=self.coin_to_coin, period = '15m', interval = '1m')
         for rest in data['Close']:
             sum=sum+rest
             how_many_elements+=1
         return round(sum/how_many_elements,4)
     
     def get_current_crypto_value(self):
-        data=yf.download(tickers='CRV-USD', period = '15m', interval = '1m')
+        data=yf.download(tickers=self.coin_to_coin, period = '15m', interval = '1m')
         amount=data['Close']
         result=amount[-1:]
         return round(result.values[0],4)
@@ -54,7 +56,7 @@ class Scrapper:
             green="<span class='"'nes-text is-error'"'>"
         end="</span>"
         if (from_last_15min < avg_from_days):
-            return (green + "Avg from last 15 min > avg from " + str(days) + " days" + end)
+            return (green + "Avg from last 15 min < avg from " + str(days) + " days" + end)
         else:
             return (red + "Avg from last 15 min > avg from " + str(days) + " days" + end)
     
