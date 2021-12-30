@@ -5,7 +5,6 @@ scraper = Scrapper()
 
 @app.route("/")
 def main():
-    scraper.yesterday_to_today()
     return render_template("index.html")
 
 @app.route("/avg/<numb>")

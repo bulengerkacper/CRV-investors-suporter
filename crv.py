@@ -45,8 +45,8 @@ class Scrapper:
     
     def compare_15min_to_x_days(self,days):
         from_last_15min=self.get_avg_from_last_15min()
-        avg_from_days=self.avg_from_days(3)
-        if (from_last_15min < days):
+        avg_from_days=self.avg_from_days(days)
+        if (from_last_15min < avg_from_days):
             return ("<span class='"'nes-text is-success'"'>Avg from last 15 min < " + str(days) + " days</span>")
         else:
             return ("<span class='"'nes-text is-error'"'>Avg from last 15 min > " +  str(days) + " days</span>")
@@ -54,13 +54,15 @@ class Scrapper:
     def yesterday_to_today(self):
         prevday=self.only_adj_close[-2]
         curday=self.only_adj_close[-1]
+        print(prevday)
+        print(curday)
         if(prevday>curday):
             result=(prevday-curday)/prevday*100
-            return str(round(result,2))
+            return ("<span class='"'nes-text is-error'"'> " + str(round(result,2)) + "</span>")
         elif(prevday<curday):
             result=(curday-prevday)/prevday*100
             round(result,2)
-            return str(round(result,2))
+            return ("<span class='"'nes-text is-success'"'> " + str(round(result,2)) + "</span>")
         elif(prevday==curday):
             return "Current day and previous are equal"
 
