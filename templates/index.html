@@ -17,28 +17,33 @@
         $.get('/avg/3',  // url
             function (data, textStatus, jqXHR) {  // success callback
                 // alert('status: ' + textStatus + ', data:' + data);
-                $('result_of_avg_3').append("AVG FROM 3 DAYS: " + data+"</br>");
+                $('result_of_avg_3').append("3 DAYS: " + data + "</br>");
             });
         $.get('/avg/5',  // url
         function (data, textStatus, jqXHR) {  // success callback
             // alert('status: ' + textStatus + ', data:' + data);
-            $('result_of_avg_5').append("AVG FROM 5 DAYS: " + data+"</br>");
+            $('result_of_avg_5').append("5 DAYS: " + data + "</br>");
         });
 
         $.get('/avg_from_last_15min',  // url
         function (data, textStatus, jqXHR) {  // success callback
             // alert('status: ' + textStatus + ', data:' + data);
-            $('result_of_avg_15min').append("AVG FROM 15 min: " + data+"</br>");
+            $('result_of_avg_15min').append("15 min: " + data + "</br>");
         });
         $.get('/compare_15min_to_3days',  // url
         function (data, textStatus, jqXHR) {  // success callback
             // alert('status: ' + textStatus + ', data:' + data);
-            $('compare_to_3').append(data+"</br>");
+            $('compare_to_3').append(data);
         });
         $.get('/compare_15min_to_5days',  // url
         function (data, textStatus, jqXHR) {  // success callback
             // alert('status: ' + textStatus + ', data:' + data);
-            $('compare_to_5').append(data+"</br>");
+            $('compare_to_5').append(data);
+        });
+        $.get('/get_current_value',  // url
+        function (data, textStatus, jqXHR) {  // success callback
+            // alert('status: ' + textStatus + ', data:' + data);
+            $('cur_val').append(data);
         });
     </script>
 </head>
@@ -47,20 +52,46 @@
 <body>
 CURVE DAO Token investors helper.
 
-<!-- 3/5 DAYS AVG-->
-<div class="nes-container is-dark with-title" style="width: 30%;">
-    <p class="title">Averages</p>
-    <result_of_avg_3></result_of_avg_3>
-    <result_of_avg_5></result_of_avg_5>
-    <result_of_avg_15min></result_of_avg_15min>
-  </div>
-
-  <div class="nes-container is-dark with-title" style="width: 30%;">
-    <p class="title">Advisors</p>
-    <compare_to_3></compare_to_3>
-    </br></br>
-    <compare_to_5></compare_to_5>
-    </br></br>  
+  <div class="nes-table-responsive" style="width:60%;">
+    <table class="nes-table is-bordered is-dark">
+      <thead>
+        <tr>
+        <th>
+            <div class="nes-container is-dark with-title">
+                <p class="title">CurVal</p>
+                    <cur_val></cur_val>
+                </div>
+        </th>
+          <th style="width:40%;">
+            <div class="nes-container is-dark with-title">
+                <p class="title">Averages</p>
+                <result_of_avg_3></result_of_avg_3>
+                <result_of_avg_5></result_of_avg_5>
+                <result_of_avg_15min></result_of_avg_15min>
+            </div>
+        </th>
+          <th>
+            <div class="nes-container is-dark with-title">
+                <p class="title">Advisors</p>
+                <compare_to_3></compare_to_3>
+                </br></br>
+                <compare_to_5></compare_to_5>
+                </br></br>  
+            </div> 
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Thou hast had a good morning</td>
+          <td>Thou hast had a good afternon</td>
+        </tr>
+        <tr>
+          <td>Thou hast had a good morning</td>
+          <td>Thou hast had a good afternoon</td>
+        </tr>
+      </tbody>
+    </table>
   </div>
   
   

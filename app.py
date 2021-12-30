@@ -23,3 +23,7 @@ def compare_15min_to_3days():
 @app.route("/compare_15min_to_5days")
 def compare_15min_to_5days():
     return str(scraper.compare_15min_to_5days())
+
+@app.route("/get_current_value")
+def get_current_value():
+    return str(scraper.get_current_value())
