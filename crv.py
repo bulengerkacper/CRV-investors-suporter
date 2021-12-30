@@ -72,21 +72,3 @@ class Scrapper:
             return ("<span class='"'nes-text is-success'"'> +" + str(round(result,2)) + "</span>")
         elif(prevday==curday):
             return "Current day and previous are equal"
-
-
-
-#data scraper
-##################
-#print(crv)
-#print (crv[-5:]) #LAST FIVE ELEMENTS
-
-#########################
-###SHORT ADVISOR
-#####################
-
-#######LONG_CHART##############
-# crypto= crv[['Date','Adj Close']]
-# crypto.set_index("Date", inplace=True)
-# #FOR LONGERS
-# fig = px.line(crypto, y=["Adj Close"] )
-# fig.show();
