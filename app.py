@@ -14,9 +14,12 @@ def count_average(numb):
 
 @app.route("/avg_from_last_15min")
 def get_avg_from_last_15min():
-    avg = scraper.get_avg_from_last_15min()
-    return str(avg)
+    return str(scraper.get_avg_from_last_15min())
 
 @app.route("/compare_15min_to_3days")
 def compare_15min_to_3days():
     return str(scraper.compare_15min_to_3days())
+
+@app.route("/compare_15min_to_5days")
+def compare_15min_to_5days():
+    return str(scraper.compare_15min_to_5days())

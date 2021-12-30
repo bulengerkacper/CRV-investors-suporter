@@ -35,6 +35,11 @@
             // alert('status: ' + textStatus + ', data:' + data);
             $('compare_to_3').append(data+"</br>");
         });
+        $.get('/compare_15min_to_5days',  // url
+        function (data, textStatus, jqXHR) {  // success callback
+            // alert('status: ' + textStatus + ', data:' + data);
+            $('compare_to_5').append(data+"</br>");
+        });
     </script>
 </head>
 
@@ -54,7 +59,7 @@ CURVE DAO Token investors helper.
     <p class="title">Advisors</p>
     <compare_to_3></compare_to_3>
     </br></br>
-    <compareto5></compareto5>
+    <compare_to_5></compare_to_5>
     </br></br>  
   </div>
   

@@ -51,6 +51,13 @@ class Scrapper:
         else:
             return "<span class='"'nes-text is-error'"'>Avg from last 15 min is > avg from 3 days</span>"
 
+    def compare_15min_to_5days(self):
+        from_last_15min=self.get_avg_from_last_15min()
+        avg_from_5_days=self.avg_from_days(5)
+        if (from_last_15min < avg_from_5_days):
+            return "<span class='"'nes-text is-success'"'>Avg from last 15 min is < avg from 5 days</span>"
+        else:
+            return "<span class='"'nes-text is-error'"'>Avg from last 15 min is > avg from 5 days</span>"
 
 #data scraper
 ##################
