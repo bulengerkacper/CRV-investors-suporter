@@ -43,29 +43,13 @@ class Scrapper:
         result=amount[-1:]
         return round(result.values[0],4)
     
-    def compare_15min_to_3days(self):
+    def compare_15min_to_x_days(self,days):
         from_last_15min=self.get_avg_from_last_15min()
-        avg_from_3_days=self.avg_from_days(3)
-        if (from_last_15min < avg_from_3_days):
-            return "<span class='"'nes-text is-success'"'>Avg from last 15 min < 3 days</span>"
+        avg_from_days=self.avg_from_days(3)
+        if (from_last_15min < days):
+            return ("<span class='"'nes-text is-success'"'>Avg from last 15 min < " + str(days) + " days</span>")
         else:
-            return "<span class='"'nes-text is-error'"'>Avg from last 15 min > 3 days</span>"
-
-    def compare_15min_to_5days(self):
-        from_last_15min=self.get_avg_from_last_15min()
-        avg_from_5_days=self.avg_from_days(5)
-        if (from_last_15min < avg_from_5_days):
-            return "<span class='"'nes-text is-success'"'>Avg from last 15 min < 5 days</span>"
-        else:
-            return "<span class='"'nes-text is-error'"'>Avg from last 15 min > 5 days</span>"
-
-    def compare_15min_to_31days(self):
-        from_last_15min=self.get_avg_from_last_15min()
-        avg_from_5_days=self.avg_from_days(31)
-        if (from_last_15min < avg_from_5_days):
-            return "<span class='"'nes-text is-success'"'>Avg from last 15 min < 31 days</span>"
-        else:
-            return "<span class='"'nes-text is-error'"'>Avg from last 15 min > 31 days</span>"
+            return ("<span class='"'nes-text is-error'"'>Avg from last 15 min > " +  str(days) + " days</span>")
 
 #data scraper
 ##################

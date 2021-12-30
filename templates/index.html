@@ -35,17 +35,17 @@
             // alert('status: ' + textStatus + ', data:' + data);
             $('result_of_avg_15min').append("15 min: " + data + "</br>");
         });
-        $.get('/compare_15min_to_3days',  // url
+        $.get('/compare_15min_to_days/3',  // url
         function (data, textStatus, jqXHR) {  // success callback
             // alert('status: ' + textStatus + ', data:' + data);
             $('compare_to_3').append(data);
         });
-        $.get('/compare_15min_to_5days',  // url
+        $.get('/compare_15min_to_days/5',  // url
         function (data, textStatus, jqXHR) {  // success callback
             // alert('status: ' + textStatus + ', data:' + data);
             $('compare_to_5').append(data);
         });
-        $.get('/compare_15min_to_31days',  // url
+        $.get('/compare_15min_to_days/31',  // url
         function (data, textStatus, jqXHR) {  // success callback
             // alert('status: ' + textStatus + ', data:' + data);
             $('compare_to_31').append(data);
