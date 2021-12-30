@@ -17,18 +17,18 @@
         $.get('/avg/3',  // url
             function (data, textStatus, jqXHR) {  // success callback
                 // alert('status: ' + textStatus + ', data:' + data);
-                $('result_of_avg_3').append("AVG FROM 3 DAYS: " + data);
+                $('result_of_avg_3').append("AVG FROM 3 DAYS: " + data+"</br>");
             });
         $.get('/avg/5',  // url
         function (data, textStatus, jqXHR) {  // success callback
             // alert('status: ' + textStatus + ', data:' + data);
-            $('result_of_avg_5').append("AVG FROM 5 DAYS: " + data);
+            $('result_of_avg_5').append("AVG FROM 5 DAYS: " + data+"</br>");
         });
 
         $.get('/avg_from_last_15min',  // url
         function (data, textStatus, jqXHR) {  // success callback
             // alert('status: ' + textStatus + ', data:' + data);
-            $('result_of_avg_15min').append("AVG FROM 15 min: " + data);
+            $('result_of_avg_15min').append("AVG FROM 15 min: " + data+"</br>");
         });
     </script>
 </head>
@@ -41,11 +41,18 @@ CURVE DAO Token investors helper.
 <div class="nes-container is-dark with-title" style="width: 30%;">
     <p class="title">Averages</p>
     <result_of_avg_3></result_of_avg_3>
-    </br></br>
     <result_of_avg_5></result_of_avg_5>
-    </br></br>  
     <result_of_avg_15min></result_of_avg_15min>
   </div>
+
+  <div class="nes-container is-dark with-title" style="width: 30%;">
+    <p class="title">Advisors</p>
+    <compareto3></compareto3>
+    </br></br>
+    <compareto5></compareto5>
+    </br></br>  
+  </div>
+  
   
   <!-- .nes-container {
     width: 30%;
