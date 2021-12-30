@@ -37,7 +37,7 @@ class Scrapper:
             how_many_elements+=1
         return round(sum/how_many_elements,4)
     
-    def get_current_value(self):
+    def get_current_crypto_value(self):
         data=yf.download(tickers='CRV-USD', period = '15m', interval = '1m')
         amount=data['Close']
         result=amount[-1:]
@@ -54,15 +54,13 @@ class Scrapper:
     def yesterday_to_today(self):
         prevday=self.only_adj_close[-2]
         curday=self.only_adj_close[-1]
-        print(prevday)
-        print(curday)
         if(prevday>curday):
             result=(prevday-curday)/prevday*100
-            return ("<span class='"'nes-text is-error'"'> " + str(round(result,2)) + "</span>")
+            return ("<span class='"'nes-text is-error'"'> -" + str(round(result,2)) + "</span>")
         elif(prevday<curday):
             result=(curday-prevday)/prevday*100
             round(result,2)
-            return ("<span class='"'nes-text is-success'"'> " + str(round(result,2)) + "</span>")
+            return ("<span class='"'nes-text is-success'"'> +" + str(round(result,2)) + "</span>")
         elif(prevday==curday):
             return "Current day and previous are equal"
 

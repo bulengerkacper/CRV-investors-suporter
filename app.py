@@ -21,8 +21,8 @@ def compare_15min_to_x_days(days):
     return str(scraper.compare_15min_to_x_days(int(days)))
 
 @app.route("/get_current_value")
-def get_current_value():
-    return str(scraper.get_current_value())
+def get_current_crypto():
+    return str(scraper.get_current_crypto_value())
 
 @app.route("/yesterday_to_today")
 def yesterday_to_today():
