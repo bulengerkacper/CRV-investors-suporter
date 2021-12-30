@@ -1,6 +1,15 @@
 
-Its kind of 'helper' site for potential CRV token investors.
 
--Shows a few charts.
--Count averages and say you when its worth to invest in short/long terms.
+Its kind of 'helper' site for crypto investors.
+Designed for CRV, can be used with another coins. Already added btc,eth,crv, but will be more when 
+i finish all functionalities.
+
+It:
+- Gives advice regarding investments
+- Count averages and say you when its worth to invest in short/long terms.
+
+
+Install deps from app.py
+Perform "flask run"
+
 
