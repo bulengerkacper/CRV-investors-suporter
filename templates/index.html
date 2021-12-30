@@ -24,6 +24,11 @@
             // alert('status: ' + textStatus + ', data:' + data);
             $('result_of_avg_5').append("5 DAYS: " + data + "</br>");
         });
+        $.get('/avg/31',  // url
+        function (data, textStatus, jqXHR) {  // success callback
+            // alert('status: ' + textStatus + ', data:' + data);
+            $('result_of_avg_31').append("31 DAYS: " + data + "</br>");
+        });
 
         $.get('/avg_from_last_15min',  // url
         function (data, textStatus, jqXHR) {  // success callback
@@ -39,6 +44,11 @@
         function (data, textStatus, jqXHR) {  // success callback
             // alert('status: ' + textStatus + ', data:' + data);
             $('compare_to_5').append(data);
+        });
+        $.get('/compare_15min_to_31days',  // url
+        function (data, textStatus, jqXHR) {  // success callback
+            // alert('status: ' + textStatus + ', data:' + data);
+            $('compare_to_31').append(data);
         });
         $.get('/get_current_value',  // url
         function (data, textStatus, jqXHR) {  // success callback
@@ -67,6 +77,7 @@ CURVE DAO Token investors helper.
                 <p class="title">Averages</p>
                 <result_of_avg_3></result_of_avg_3>
                 <result_of_avg_5></result_of_avg_5>
+                <result_of_avg_31></result_of_avg_31>
                 <result_of_avg_15min></result_of_avg_15min>
             </div>
         </th>
@@ -77,6 +88,7 @@ CURVE DAO Token investors helper.
                 </br></br>
                 <compare_to_5></compare_to_5>
                 </br></br>  
+                <compare_to_31></compare_to_31>
             </div> 
           </th>
         </tr>
@@ -85,10 +97,12 @@ CURVE DAO Token investors helper.
         <tr>
           <td>Thou hast had a good morning</td>
           <td>Thou hast had a good afternon</td>
+          <td></td>
         </tr>
         <tr>
           <td>Thou hast had a good morning</td>
           <td>Thou hast had a good afternoon</td>
+          <td></td>
         </tr>
       </tbody>
     </table>
