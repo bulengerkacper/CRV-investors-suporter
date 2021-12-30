@@ -55,6 +55,11 @@
             // alert('status: ' + textStatus + ', data:' + data);
             $('cur_val').append(data);
         });
+        $.get('/yesterday_to_today',  // url
+        function (data, textStatus, jqXHR) {  // success callback
+            // alert('status: ' + textStatus + ', data:' + data);
+            $('yesterday_to_today').append(data);
+        });
     </script>
 </head>
 
@@ -70,6 +75,7 @@ CURVE DAO Token investors helper.
             <div class="nes-container is-dark with-title">
                 <p class="title">CurVal</p>
                     <cur_val></cur_val>
+                    <yesterday_to_today></yesterday_to_today>
                 </div>
         </th>
           <th style="width:40%;">

@@ -20,11 +20,11 @@ class Scrapper:
         self.start_long_term = dt.datetime(2020, 8, 14) 
         self.end_long_term = dt.datetime(self.current_year,self.current_month,self.current_day)
         self.crv = web.DataReader("CRV-USD", 'yahoo', self.start_long_term, self.end_long_term)
+        self.only_adj_close=self.crv["Adj Close"]
 
     def avg_from_days(self,how_many_elements):
         sum=0
-        only_adj_close=self.crv["Adj Close"]
-        for rest in only_adj_close[-how_many_elements:]:
+        for rest in self.only_adj_close[-how_many_elements:]:
             sum=sum+rest
         return round(sum/how_many_elements,4)
 
@@ -50,6 +50,21 @@ class Scrapper:
             return ("<span class='"'nes-text is-success'"'>Avg from last 15 min < " + str(days) + " days</span>")
         else:
             return ("<span class='"'nes-text is-error'"'>Avg from last 15 min > " +  str(days) + " days</span>")
+    
+    def yesterday_to_today(self):
+        prevday=self.only_adj_close[-2]
+        curday=self.only_adj_close[-1]
+        if(prevday>curday):
+            result=(prevday-curday)/prevday*100
+            return str(round(result,2))
+        elif(prevday<curday):
+            result=(curday-prevday)/prevday*100
+            round(result,2)
+            return str(round(result,2))
+        elif(prevday==curday):
+            return "Current day and previous are equal"
+
+
 
 #data scraper
 ##################

@@ -5,6 +5,7 @@ scraper = Scrapper()
 
 @app.route("/")
 def main():
+    scraper.yesterday_to_today()
     return render_template("index.html")
 
 @app.route("/avg/<numb>")
@@ -23,3 +24,7 @@ def compare_15min_to_x_days(days):
 @app.route("/get_current_value")
 def get_current_value():
     return str(scraper.get_current_value())
+
+@app.route("/yesterday_to_today")
+def yesterday_to_today():
+    return scraper.yesterday_to_today()
