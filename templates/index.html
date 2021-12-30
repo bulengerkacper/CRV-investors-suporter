@@ -78,7 +78,9 @@
             url: '/coinswitcher',
             dataType: 'json',
             data: JSON.stringify({ "value": coin_type }),
-            success: function (result) {},
+            success: function (result) {
+
+            },
             error: function (error) { console.error(error) }
           });
         }
@@ -112,7 +114,7 @@ CURVE DAO Token investors helper.
           <div class="nes-select is-success">
             <form>
             <select required id="success_select">
-              <option value="0" disabled selected hidden>CRV-USD</option>
+              <option value="CRV-USD" disabled selected hidden>CRV-USD</option>
               <option value="CRV-USD">CRV-USD</option>
               <option value="BTC-USD">BTC-USD</option>
               <option value="ETH-USD">ETH-USD</option>

@@ -1,7 +1,7 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect, url_for
 from crv import *
+
 app = Flask(__name__)
-# app.config["TEMPLATES_AUTO_RELOAD"] = True
 scraper = Scrapper()
 
 @app.route("/")
@@ -31,10 +31,11 @@ def yesterday_to_today():
 
 @app.route("/coinswitcher", methods = ['POST'])
 def coinswitcher():
-    # data = request.form
-    # print(request.form.get(['success_select']))
-    json=request.get_json()
-    # print(request.get_json())
-    scraper.refresh_data(json['value'])
-    # print(json['value'])
-    return render_template("index.html")
+    if request.method == 'POST':
+        json=request.get_json()
+        scraper.refresh_data(json['value'])
+    return redirect('index.html')
+
+if __name__ == "__main__":
+    app.config['TEMPLATES_AUTO_RELOAD'] = True
+    app.run(debug=True, host='127.0.0.1')
