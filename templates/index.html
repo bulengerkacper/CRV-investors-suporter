@@ -70,6 +70,12 @@
             // alert('status: ' + textStatus + ', data:' + data);
             $('yesterday_to_today').append(data);
         });
+        function myFunction() {
+             d=document.getElementById("success_select").value;
+             alert(d);
+
+        }
+
     </script>
 </head>
 
@@ -95,7 +101,18 @@ CURVE DAO Token investors helper.
           </div>
         </th>
         <th>
-          
+          <label for="success_select">Switch coin</label>
+          <div class="nes-select is-success">
+            <form>
+            <select required id="success_select">
+              <option value="0" disabled selected hidden>CRV-USD</option>
+              <option value="0">CRV-USD</option>
+              <option value="1">BTC-USD</option>
+              <option value="2">ETH-USD</option>
+            </select>
+            <button type="button" onclick="myFunction()">Check it</button>
+            </form>
+          </div>
         </th>
         </tr>
       </thead>
@@ -135,9 +152,12 @@ CURVE DAO Token investors helper.
   </div>
   
   
-  <!-- .nes-container {
-    width: 30%;
-  }
-  style="width:30%;" -->
+  <div class="containerk" style="width:60%;height:5%;">
+    <p style="font-size:10;position:fixed;left:20%;"> Do what u want man. Constructed by KB 2021s.</p>
+  </div>
+
+  <!-- <div class="nes-container is-rounded is-dark" style="width:60%;height:5%;">
+    <p>Do what u want man. Constructed by KB 2021s.</p>
+  </div> -->
 </body>
 </html>
