@@ -46,10 +46,17 @@ class Scrapper:
     def compare_15min_to_x_days(self,days):
         from_last_15min=self.get_avg_from_last_15min()
         avg_from_days=self.avg_from_days(days)
+        if(days<30): 
+            red="<span class='"'nes-text is-error'"'>"
+            green="<span class='"'nes-text is-success'"'>"
+        else:#i will go to hell because of this part of code ^^
+            red="<span class='"'nes-text is-success'"'>"
+            green="<span class='"'nes-text is-error'"'>"
+        end="</span>"
         if (from_last_15min < avg_from_days):
-            return ("<span class='"'nes-text is-success'"'>Avg from last 15 min < " + str(days) + " days</span>")
+            return (green + "Avg from last 15 min > avg from " + str(days) + " days" + end)
         else:
-            return ("<span class='"'nes-text is-error'"'>Avg from last 15 min > " +  str(days) + " days</span>")
+            return (red + "Avg from last 15 min > avg from " + str(days) + " days" + end)
     
     def yesterday_to_today(self):
         prevday=self.only_adj_close[-2]
