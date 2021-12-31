@@ -14,10 +14,10 @@ Comparing mentioned avgs with most recent one
 
 ## Installation
 
-Install python(I was using 3.9)
-Install pip
-You have to pip following libs on your env before starting:
-flask,plotly,yfinance, datetime
+1.Install python(I was using 3.9)
+2.Install pip
+3.You have to pip following libs on your env before starting:
+4.flask,plotly,yfinance, datetime
 
 
 Then
@@ -29,6 +29,9 @@ flask run
 
 Here i will put gif in future releases
 
+## Contribution
+
+Feel free to contribute.
 
 ## Authors
 
