@@ -67,7 +67,7 @@
         });
         $.get('/yesterday_to_today',  // url
         function (data, textStatus, jqXHR) {  // success callback
-            // alert('status: ' + textStatus + ', data:' + data);
+          // take wrong value after refresh
             $('yesterday_to_today').append(data);
         });
         function myFunction() {
@@ -90,8 +90,7 @@
 
 
 <body>
-Crypto investors helper.
-
+  <span class="nes-text is-primary">Crypto investors helper.</span>
   <div class="nes-table-responsive" style="width:60%;">
     <!-- <table class="nes-table is-bordered is-dark"> -->
       <table>
@@ -114,7 +113,6 @@ Crypto investors helper.
           <div class="nes-select is-success">
             <form>
             <select required id="success_select">
-              <option value="CRV-USD" disabled selected hidden>CRV-USD</option>
               <option value="CRV-USD">CRV-USD</option>
               <option value="BTC-USD">BTC-USD</option>
               <option value="ETH-USD">ETH-USD</option>
@@ -165,8 +163,5 @@ Crypto investors helper.
     <p style="font-size:10;position:fixed;left:20%;"> Do what u want man. Constructed by KB 2021s.</p>
   </div>
 
-  <!-- <div class="nes-container is-rounded is-dark" style="width:60%;height:5%;">
-    <p>Do what u want man. Constructed by KB 2021s.</p>
-  </div> -->
 </body>
 </html>
