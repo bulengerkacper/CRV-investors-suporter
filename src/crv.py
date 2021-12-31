@@ -72,3 +72,14 @@ class Scrapper:
             return ("<span class='"'nes-text is-success'"'> +" + str(round(result,2)) + "</span>")
         elif(prevday==curday):
             return "Current day and previous are equal"
+    
+    def fancy_loader(self):
+        return "" #to be implemented
+
+
+
+###todo rsi
+# 100 – 100 / (1 + a / b), gdzie:
+
+# “a” = średnia wartość wzrostu cen
+# “b” = średnia wartość spadku cen
