@@ -1,22 +1,6 @@
-
+# CryptoAdvisor
 
 Its kind of 'helper' site for crypto investors.
-Designed for CRV, can be used with another coins. Already added btc,eth,crv, but will be more when 
-i finish all functionalities.
-
-It:
-- Gives advice regarding investments
-- Count averages and say you when its worth to invest in short/long terms.
-
-
-Install deps from app.py
-Perform "flask run"
-
-
-
-# Project Title
-
-A brief description of what this project does and who it's for
 
 ## Features
 
