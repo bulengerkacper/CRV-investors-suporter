@@ -18,7 +18,7 @@ class Scrapper:
         self.current_year=datetime.now().year
         self.current_month=datetime.now().month
         self.current_day=datetime.now().day
-        self.start_long_term = dt.datetime(2020, 8, 14) 
+        self.start_long_term = dt.datetime(2021, 6, 14) 
         self.end_long_term = dt.datetime(self.current_year,self.current_month,self.current_day)
         self.coin_to_coin=coin_to_coin
         self.crv = web.DataReader(coin_to_coin, 'yahoo', self.start_long_term, self.end_long_term)
