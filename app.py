@@ -34,7 +34,7 @@ def coinswitcher():
     if request.method == 'POST':
         json=request.get_json()
         scraper.refresh_data(json['value'])
-        return redirect("/")
+        return redirect("127.0.0.1:5000")
 
 if __name__ == "__main__":
     app.config['TEMPLATES_AUTO_RELOAD'] = True
