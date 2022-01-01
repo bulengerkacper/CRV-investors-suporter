@@ -8,7 +8,6 @@ class Scrapper:
     def __init__(self):
         self.coin_to_coin="CRV-USD"
         self.refresh_data(self.coin_to_coin)
-        #self.crv.reset_index(inplace=True)
     
     def refresh_data(self,coin_to_coin):
         self.current_year=datetime.now().year
@@ -88,15 +87,7 @@ class Scrapper:
         avg_down=sum_down/down_counter
         rs=avg_up/avg_down
         rsi=100-100/(1+rs)
-        return rsi
+        return round(rsi,4)
         
     def fancy_loader(self):
         return "" #to be implemented
-
-
-
-###todo rsi
-# 100 – 100 / (1 + a / b), gdzie:
-
-# “a” = średnia wartość wzrostu cen
-# “b” = średnia wartość spadku cen
