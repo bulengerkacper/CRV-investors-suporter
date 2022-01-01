@@ -1,7 +1,7 @@
 import re
 import pandas_datareader.data as web
 # import matplotlib.pyplot as plt
-import itertools
+import more_itertools
 import plotly.express as px
 from datetime import date, datetime, timedelta
 import datetime as dt
@@ -82,8 +82,8 @@ class Scrapper:
         down_counter=0
         sum_up=0
         sum_down=0
-        for value,next_value in itertools.pairwise(temp_only_adj_close):
-            if(value/next_value) > 1:
+        for value,next_value in more_itertools.pairwise(temp_only_adj_close):
+            if(next_value/value) > 1:
                 sum_up=sum_up+value
                 up_counter+=1
             else:
