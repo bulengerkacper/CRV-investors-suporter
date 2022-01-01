@@ -75,7 +75,6 @@ class Scrapper:
 
     def get_rsi(self): #tbi
         minus14days=self.end_long_term-timedelta(14)
-        print(minus14days)
         temp = web.DataReader(self.coin_to_coin, 'yahoo', minus14days, self.end_long_term)
         temp_only_adj_close=temp["Adj Close"]
         up_counter=0
@@ -89,8 +88,6 @@ class Scrapper:
             else:
                 sum_down=sum_down+value
                 down_counter+=1
-        print(sum_up, sum_down)
-        print(up_counter, down_counter)
         avg_up=sum_up/up_counter
         avg_down=sum_down/down_counter
         rs=avg_up/avg_down
