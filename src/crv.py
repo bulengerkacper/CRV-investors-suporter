@@ -1,7 +1,7 @@
 import re
 import pandas_datareader.data as web
 # import matplotlib.pyplot as plt
-
+import itertools
 import plotly.express as px
 from datetime import date, datetime, timedelta
 import datetime as dt
@@ -72,7 +72,31 @@ class Scrapper:
             return ("<span class='"'nes-text is-success'"'> +" + str(round(result,2)) + "</span>")
         elif(prevday==curday):
             return "Current day and previous are equal"
-    
+
+    def get_rsi(self): #tbi
+        minus14days=self.end_long_term-timedelta(14)
+        print(minus14days)
+        temp = web.DataReader(self.coin_to_coin, 'yahoo', minus14days, self.end_long_term)
+        temp_only_adj_close=temp["Adj Close"]
+        up_counter=0
+        down_counter=0
+        sum_up=0
+        sum_down=0
+        for value,next_value in itertools.pairwise(temp_only_adj_close):
+            if(value/next_value) > 1:
+                sum_up=sum_up+value
+                up_counter+=1
+            else:
+                sum_down=sum_down+value
+                down_counter+=1
+        print(sum_up, sum_down)
+        print(up_counter, down_counter)
+        avg_up=sum_up/up_counter
+        avg_down=sum_down/down_counter
+        rs=avg_up/avg_down
+        rsi=100-100/(1+rs)
+        return rsi
+        
     def fancy_loader(self):
         return "" #to be implemented
 

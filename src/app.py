@@ -36,6 +36,10 @@ def coinswitcher():
         scraper.refresh_data(json['value'])
         return redirect("127.0.0.1:5000")
 
+@app.route("/rsi")
+def rsi():
+    return str(scraper.get_rsi())
+
 if __name__ == "__main__":
     app.config['TEMPLATES_AUTO_RELOAD'] = True
     app.run(debug=True, host='127.0.0.1')
