@@ -61,8 +61,8 @@ class Scrapper:
             return (red + "Avg from last 15 min > avg from " + str(days) + " days" + end)
     
     def yesterday_to_today(self):
-        prevday=self.only_adj_close[-2]
-        curday=self.only_adj_close[-1]
+        prevday=self.only_adj_close[-1]
+        curday=self.get_current_crypto_value()
         if(prevday>curday):
             result=(prevday-curday)/prevday*100
             return ("<span class='"'nes-text is-error'"'> -" + str(round(result,2)) + "</span>")
