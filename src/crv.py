@@ -20,14 +20,14 @@ class Scrapper:
         self.only_adj_close=self.crv["Adj Close"]
 
     def avg_from_days(self,how_many_elements):
+        self.refresh_data(self.coin_to_coin)
         sum=0
         for rest in self.only_adj_close[-how_many_elements:]:
             sum=sum+rest
         return round(sum/how_many_elements,4)
 
     def get_avg_from_last_15min(self):
-        sum=0
-        how_many_elements=0
+        sum,how_many_elements = 0,0
         data = yf.download(tickers=self.coin_to_coin, period = '15m', interval = '1m')
         for rest in data['Close']:
             sum=sum+rest
@@ -72,10 +72,7 @@ class Scrapper:
         minus14days=self.end_long_term-timedelta(14)
         temp = web.DataReader(self.coin_to_coin, 'yahoo', minus14days, self.end_long_term)
         temp_only_adj_close=temp["Adj Close"]
-        up_counter=0
-        down_counter=0
-        sum_up=0
-        sum_down=0
+        up_counter,down_counter,sum_up,sum_down=0,0,0,0
         for value,next_value in more_itertools.pairwise(temp_only_adj_close):
             if(next_value/value) > 1:
                 sum_up=sum_up+value
