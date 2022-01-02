@@ -10,13 +10,9 @@ class Scrapper:
         self.refresh_data(self.coin_to_coin)
     
     def refresh_data(self,coin_to_coin):
-        self.current_year=datetime.now().year
-        self.current_month=datetime.now().month
-        self.current_day=datetime.now().day
-        self.start_long_term = datetime(2021, 6, 14) 
-        self.end_long_term = datetime(self.current_year,self.current_month,self.current_day)
         self.coin_to_coin=coin_to_coin
-        self.crv = web.DataReader(coin_to_coin, 'yahoo', self.start_long_term, self.end_long_term)
+        self.end_long_term = datetime(datetime.now().year,datetime.now().month,datetime.now().day)
+        self.crv = web.DataReader(coin_to_coin, 'yahoo', datetime.now()-timedelta(180), self.end_long_term)
         self.only_adj_close=self.crv["Adj Close"]
 
     def avg_from_days(self,how_many_elements):
