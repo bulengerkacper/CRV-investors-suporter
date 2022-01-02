@@ -16,7 +16,6 @@ class Scrapper:
         self.only_adj_close=self.crv["Adj Close"]
 
     def avg_from_days(self,how_many_elements):
-        self.refresh_data(self.coin_to_coin)
         sum=0
         for rest in self.only_adj_close[-how_many_elements:]:
             sum=sum+rest
