@@ -33,7 +33,8 @@ def yesterday_to_today():
 def coinswitcher():
     if request.method == 'POST':
         json=request.get_json()
-        return(scraper.refresh_data(json['value']))
+        scraper.refresh_data(json['value'])
+        return("")
 
 
 @app.route("/rsi")
