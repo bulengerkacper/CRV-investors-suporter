@@ -5,9 +5,9 @@ Its kind of 'helper' site for crypto investors.
 ## Features
 
 Supports:CRV,ETH,BTC, when functionalities will be finished we will extend the amount of cryptos
-Counting avgs from 3,5,31,180 days \n
-Comparing mentioned avgs with most recent one \
-Counts RSI\
+Counting avgs from 3,5,31,180 days  
+Comparing mentioned avgs with most recent one  
+Counts RSI  
 
 [If you want some important feature regarding crypto data just write to me what it should do and why its important]
 
@@ -15,10 +15,10 @@ Counts RSI\
 
 ## Installation
 
-1.Install python(I was using 3.9)\
-2.Install pip\
-3.You have to pip following libs on your env before starting:\
-4.flask,plotly,yfinance, datetime,more_itertools\
+1.Install python(I was using 3.9)  
+2.Install pip  (I was using pip)
+3.You have to pip following libs on your env before starting:  
+4.flask,plotly,yfinance, datetime,more_itertools  
 
 Then
 ```bash
