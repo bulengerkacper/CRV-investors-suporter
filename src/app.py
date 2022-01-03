@@ -26,7 +26,6 @@ def get_current_crypto():
 
 @app.route("/yesterday_to_today")
 def yesterday_to_today():
-    # scraper.refresh_data(scraper.coin_to_coin) # hate this. but it works
     return scraper.yesterday_to_today()
 
 @app.route("/coinswitcher", methods = ['POST'])
