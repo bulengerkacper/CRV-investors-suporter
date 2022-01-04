@@ -35,10 +35,9 @@ def coinswitcher():
         scraper.refresh_data(json['value'])
         return("")
 
-
-@app.route("/rsi")
-def rsi():
-    return str(scraper.get_rsi())
+@app.route("/rsi/<numb>")
+def rsi(numb):
+    return str(scraper.get_rsi(int(numb)))
 
 if __name__ == "__main__":
     app.config['TEMPLATES_AUTO_RELOAD'] = True

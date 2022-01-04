@@ -54,10 +54,10 @@ function (data, textStatus, jqXHR) {  // success callback
 // take wrong value after refresh
 $('yesterday_to_today').append(data);
 });
-$.get('/rsi', 
+$.get('/rsi/14', 
 function (data, textStatus, jqXHR) {  // success callback
 // take wrong value after refresh
-$('rsi').append(data);
+$('rsi_14').append(data);
 });
 function myFunction() {
 coin_type=document.getElementById("success_select").value;

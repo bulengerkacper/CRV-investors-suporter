@@ -64,8 +64,8 @@ class Scrapper:
         elif(prevday==curday):
             return "Current day and previous are equal"
 
-    def get_rsi(self): #tbi
-        minus14days=self.end_long_term-timedelta(14)
+    def get_rsi(self,how_many_days): #tbi
+        minus14days=self.end_long_term-timedelta(how_many_days)
         temp = web.DataReader(self.coin_to_coin, 'yahoo', minus14days, self.end_long_term)
         temp_only_adj_close=temp["Adj Close"]
         up_counter,down_counter,sum_up,sum_down=0,0,0,0
