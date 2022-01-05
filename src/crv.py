@@ -24,14 +24,14 @@ class Scrapper:
 
     def get_avg_from_last_15min(self):
         sum,how_many_elements = 0,0
-        data = yf.download(tickers=self.coin_to_coin, period = '15m', interval = '1m')
+        data = yf.download(tickers=self.coin_to_coin, period = '1d', interval = '1m')
         for rest in data['Close']:
             sum=sum+rest
             how_many_elements+=1
         return round(sum/how_many_elements,4)
     
     def get_current_crypto_value(self):
-        data=yf.download(tickers=self.coin_to_coin, period = '15m', interval = '1m')
+        data=yf.download(tickers=self.coin_to_coin, period = '1d', interval = '1m')
         amount=data['Close']
         result=amount[-1:]
         return round(result.values[0],4)
