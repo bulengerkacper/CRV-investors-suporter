@@ -51,6 +51,11 @@ $.get('/rsi/14',
     $('rsi_14').append(data);
 });
 
+$.get('/rsi/28', 
+    function (data, textStatus, jqXHR) {  
+    $('rsi_28').append(data);
+});
+
 function myFunction() {
     coin_type=document.getElementById("success_select").value;
         $.ajax({
